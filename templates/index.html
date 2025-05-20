@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Классификация новостей</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Классификация новостей на русском</h1>
+        <form method="post">
+            <textarea name="user_text" placeholder="Введите текст новости...">{{ user_text }}</textarea>
+            <button type="submit">Предсказать категорию</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <p><strong>Результат:</strong> {{ result }}</p>
+                <p><strong>Исходный текст:</strong> {{ original }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
