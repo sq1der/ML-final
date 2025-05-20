@@ -5,3 +5,4 @@ pymorphy3
 scikit-learn
 joblib
 nltk
+python-multipart
