@@ -24,6 +24,7 @@ model = model_data['model']
 stop_words = model_data['stop_words']
 punctuation_marks = model_data['punctuation_marks']
 morph = MorphAnalyzer()
+accuracy = model_data.get('model_accuracy', None)
 
 def preprocess(text):
     tokens = word_tokenize(text.lower())
@@ -44,5 +45,6 @@ async def form_post(request: Request, user_text: str = Form(...)):
     return templates.TemplateResponse("index.html", {
         "request": request,
         "result": prediction,
-        "original": user_text
+        "original": user_text,
+        "accuracy": f"{accuracy * 100:.2f}%" if accuracy is not None else "Недоступна"
     })
